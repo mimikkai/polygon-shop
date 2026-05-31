@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { FilterSidebar, type GenderFilter, type PriceRange } from "@/components/filter-sidebar";
 import { ProductCard } from "@/components/product-card";

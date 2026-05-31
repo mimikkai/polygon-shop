@@ -2,7 +2,6 @@
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
-import { CloseIcon } from "./icons";
 
 type MenuKey = "МУЖЧИНЫ" | "ЖЕНЩИНЫ" | "РАСПРОДАЖА";
 
@@ -203,21 +202,14 @@ export function MegaMenuNav() {
   );
 }
 
-/** Mobile mega menu — rendered as expandable sections */
-function MegaMenuMobile({
-  open,
-  onOpen,
-  onClose,
-  triggers,
-}: {
+function MegaMenuMobile(props: {
   open: MenuKey | null;
   onOpen: (key: MenuKey) => void;
   onClose: () => void;
   triggers: MegaMenuTriggerProps[];
 }) {
-  // This component is used inside the mobile drawer in header.tsx
-  // It's exported so header can embed it
-  return null; // The mobile rendering is handled directly in the header
+  void props;
+  return null;
 }
 
 /** Standalone mobile mega menu content for embedding in header mobile drawer */

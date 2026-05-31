@@ -81,6 +81,7 @@ function FilterSection({
 function Checkbox({
   checked,
   label,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onChange,
 }: {
   checked: boolean;

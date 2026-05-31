@@ -75,12 +75,12 @@ export function CartDrawer({
                 Ваша корзина пуста. Начните покупки!
               </p>
               <div className="space-y-2">
-                <a href="/collections/womens" className="btn-cta block">
+                <Link href="/collections/womens" className="btn-cta block">
                   ЖЕНСКАЯ ОБУВЬ
-                </a>
-                <a href="/collections/mens" className="btn-cta-outline block">
+                </Link>
+                <Link href="/collections/mens" className="btn-cta-outline block">
                   МУЖСКАЯ ОБУВЬ
-                </a>
+                </Link>
               </div>
             </div>
           ) : (

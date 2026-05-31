@@ -71,9 +71,10 @@ export default function CheckoutPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const id = `FH-${Date.now().toString(36).toUpperCase()}`;
+    const orderDate = new Date();
     const order: OrderData = {
       id,
-      date: new Date().toLocaleDateString("ru-RU"),
+      date: orderDate.toLocaleDateString("ru-RU"),
       firstName: form.firstName,
       lastName: form.lastName,
       email: form.email,

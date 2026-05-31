@@ -29,24 +29,20 @@ const mockOrders = [
 export default function AccountPage() {
   const { user, logout } = useAuth();
   const router = useRouter();
-  const [recentOrders, setRecentOrders] = useState<StoredOrder[]>([]);
+  const [recentOrders] = useState<StoredOrder[]>(() => {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
 
   useEffect(() => {
     if (!user) {
       router.push("/account/login");
     }
   }, [user, router]);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        setRecentOrders(JSON.parse(stored));
-      }
-    } catch {
-      // ignore
-    }
-  }, []);
 
   if (!user) return null;
 
