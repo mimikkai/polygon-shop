@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   workflow_dispatch:
 
 concurrency:
@@ -35,6 +35,29 @@ jobs:
 
       - name: Build static export
         run: npm run build
+
+      - name: Add base path for GitHub Pages
+        run: |
+          cd out
+          # Rewrite all href and src attributes to include /polygon-shop prefix
+          find . -name '*.html' -exec sed -i 's|href="/|href="/polygon-shop/|g' {} +
+          find . -name '*.html' -exec sed -i 's|src="/|src="/polygon-shop/|g' {} +
+          # Rewrite CSS url() references
+          find . -name '*.css' -exec sed -i 's|url("/|url("/polygon-shop/|g' {} +
+          # Move everything into a polygon-shop subdirectory
+          mkdir -p polygon-shop
+          cp -r . polygon-shop/ 2>/dev/null || true
+          # Remove duplicates that got copied inside polygon-shop/polygon-shop
+          rm -rf polygon-shop/polygon-shop
+          # Create root index.html that redirects to the subdirectory
+          cat > index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+            <head><meta http-equiv="refresh" content="0; url=/polygon-shop/"></head>
+          </html>
+          EOF
+          # Create 404.html for SPA-like routing
+          cp index.html 404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
