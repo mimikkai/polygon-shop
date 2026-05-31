@@ -51,7 +51,7 @@ function getEstimatedDelivery(): string {
   const maxDays = 7;
   const startDate = new Date(now.getTime() + minDays * 86400000);
   const endDate = new Date(now.getTime() + maxDays * 86400000);
-  const fmt = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" });
+  const fmt = new Intl.DateTimeFormat("ru-RU", { month: "short", day: "numeric" });
   return `${fmt.format(startDate)} - ${fmt.format(endDate)}`;
 }
 
@@ -65,10 +65,10 @@ export function ProductInfo({ product }: ProductInfoProps) {
   const deliveryDate = useMemo(() => getEstimatedDelivery(), []);
 
   const collectionName = product.category === "men"
-    ? "Men's Shoes"
+    ? "Мужская обувь"
     : product.category === "women"
-    ? "Women's Shoes"
-    : "Shoes";
+    ? "Женская обувь"
+    : "Обувь";
 
   const collectionSlug = product.category === "men"
     ? "mens"
@@ -85,8 +85,8 @@ export function ProductInfo({ product }: ProductInfoProps) {
     <div className="flex flex-col gap-5">
       {/* Breadcrumb — subtle */}
       <nav className="flex items-center gap-1.5 text-[11px] text-warm-gray/70">
-        <Link href="/" className="hover:text-charcoal transition-colors">
-          Home
+         <Link href="/" className="hover:text-charcoal transition-colors">
+          Главная
         </Link>
         <span>/</span>
         <Link href={`/collections/${collectionSlug}`} className="hover:text-charcoal transition-colors">
@@ -110,7 +110,7 @@ export function ProductInfo({ product }: ProductInfoProps) {
             href={`/collections/all?seller=${seller.slug}`}
             className="text-[12px] text-warm-gray hover:text-charcoal transition-colors mt-1 inline-block"
           >
-            Sold by <span className="underline">{seller.name}</span>
+             Продавец: <span className="underline">{seller.name}</span>
             {seller.rating >= 4.5 && (
               <span className="inline-block ml-1 text-[9px] bg-charcoal/10 text-charcoal/70 px-1 py-0.5 rounded uppercase tracking-wide no-underline">
                 Pro
@@ -122,10 +122,10 @@ export function ProductInfo({ product }: ProductInfoProps) {
 
       {/* Price */}
       <div className="flex items-center gap-3">
-        <span className="text-lg font-medium text-charcoal">{product.price} zl</span>
+        <span className="text-lg font-medium text-charcoal">{product.price} ₽</span>
         {product.originalPrice && (
           <span className="text-sm text-warm-gray line-through">
-            {product.originalPrice} zl
+            {product.originalPrice} ₽
           </span>
         )}
       </div>
@@ -136,14 +136,14 @@ export function ProductInfo({ product }: ProductInfoProps) {
           <>
             <span className="inline-block w-2 h-2 rounded-full bg-amber-500" />
             <span className="text-xs text-amber-700 font-medium">
-              Low Stock — Only {stock.quantity} left
+               Мало на складе — осталось {stock.quantity} шт.
             </span>
           </>
         ) : (
           <>
             <span className="inline-block w-2 h-2 rounded-full bg-green-500" />
             <span className="text-xs text-green-700 font-medium">
-              In Stock — Ready to Ship
+               В наличии — готово к отправке
             </span>
           </>
         )}
@@ -169,19 +169,19 @@ export function ProductInfo({ product }: ProductInfoProps) {
         disabled={!selectedSize}
         className="w-full py-4 bg-charcoal text-white text-[12px] font-medium uppercase tracking-[0.6px] rounded-full hover:bg-charcoal-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
       >
-        {selectedSize ? "ADD TO CART - " + product.price + " zl" : "SELECT A SIZE"}
+        {selectedSize ? "В КОРЗИНУ — " + product.price + " ₽" : "ВЫБЕРИТЕ РАЗМЕР"}
       </button>
 
       {/* Shipping info */}
       <div className="flex flex-col gap-2 pt-2 border-t border-border">
         <p className="text-xs text-warm-gray">
-          Free Shipping on Orders over 299 zl
+          Бесплатная доставка от 299 ₽
         </p>
         <p className="text-xs text-warm-gray">
-          Estimated delivery: {deliveryDate}
+          Примерная доставка: {deliveryDate}
         </p>
         <p className="text-xs text-warm-gray">
-          Easy Returns
+          Лёгкий возврат
         </p>
       </div>
     </div>

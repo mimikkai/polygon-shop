@@ -65,10 +65,10 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search for shoes..."
+               placeholder="Поиск обуви..."
               className="flex-1 text-base text-charcoal placeholder:text-warm-gray outline-none bg-transparent"
             />
-            <button onClick={onClose} className="p-1 hover:opacity-60 transition-opacity" aria-label="Close search">
+             <button onClick={onClose} className="p-1 hover:opacity-60 transition-opacity" aria-label="Закрыть поиск">
               <CloseIcon />
             </button>
           </div>
@@ -77,7 +77,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
           {query.trim() && (
             <div className="mt-4">
               {results.length === 0 ? (
-                <p className="text-sm text-warm-gray py-4">No products found for &ldquo;{query}&rdquo;</p>
+                <p className="text-sm text-warm-gray py-4">Ничего не найдено по запросу &ldquo;{query}&rdquo;</p>
               ) : (
                 <div className="space-y-2">
                   {results.map((product) => {
@@ -109,7 +109,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                           </h4>
                           <p className="text-[12px] text-warm-gray">{color.name}</p>
                         </div>
-                        <span className="text-[14px] font-medium">{product.price} zl</span>
+                         <span className="text-[14px] font-medium">{product.price} ₽</span>
                       </Link>
                     );
                   })}

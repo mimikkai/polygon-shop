@@ -2,32 +2,32 @@ import Link from "next/link";
 
 const footerSections = [
   {
-    title: "HELP",
+    title: "ПОМОЩЬ",
     links: [
-      { label: "FAQ/Contact Us", href: "#" },
-      { label: "Returns/Exchanges", href: "#" },
-      { label: "Shipping Info", href: "#" },
-      { label: "Order Status", href: "#" },
+      { label: "ЧЗВ/Контакты", href: "#" },
+      { label: "Возврат/обмен", href: "#" },
+      { label: "Доставка", href: "#" },
+      { label: "Статус заказа", href: "#" },
     ],
   },
   {
-    title: "SHOP",
+    title: "МАГАЗИН",
     links: [
-      { label: "Men's Shoes", href: "/collections/mens" },
-      { label: "Women's Shoes", href: "/collections/womens" },
-      { label: "New Arrivals", href: "/collections/new-arrivals" },
-      { label: "Best Sellers", href: "/collections/best-sellers" },
-      { label: "Sale", href: "/collections/sale" },
+      { label: "Мужская обувь", href: "/collections/mens" },
+      { label: "Женская обувь", href: "/collections/womens" },
+      { label: "Новинки", href: "/collections/new-arrivals" },
+      { label: "Бестселлеры", href: "/collections/best-sellers" },
+      { label: "Распродажа", href: "/collections/sale" },
     ],
   },
   {
-    title: "COMPANY",
+    title: "КОМПАНИЯ",
     links: [
-      { label: "Our Story", href: "#" },
-      { label: "Our Materials", href: "#" },
-      { label: "Sustainability", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press", href: "#" },
+      { label: "О нас", href: "#" },
+      { label: "Наши материалы", href: "#" },
+      { label: "Экологичность", href: "#" },
+      { label: "Карьера", href: "#" },
+      { label: "Пресса", href: "#" },
     ],
   },
 ];
@@ -46,7 +46,7 @@ export function Footer() {
         {/* Follow the Flock social section */}
         <div className="mb-12 pb-10 border-b border-white/10">
           <h3 className="text-[12px] font-medium uppercase tracking-[0.8px] text-white/50 mb-4">
-            FOLLOW THE FLOCK
+            ПОДПИШИТЕСЬ НА НАС
           </h3>
           <div className="flex gap-5">
             {socialLinks.map((link) => (
@@ -65,22 +65,22 @@ export function Footer() {
           {/* Email signup — more prominent */}
           <div>
             <h3 className="text-[12px] font-medium uppercase tracking-[0.8px] text-white/50 mb-4">
-              JOIN THE FLOCK
+              ПОДПИШИТЕСЬ
             </h3>
             <p className="text-sm text-white/60 mb-4 leading-relaxed">
-              Get the latest on new products, exclusive deals, and more.
+              Узнавайте первыми о новинках, эксклюзивных скидках и многом другом.
             </p>
             <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
-                placeholder="Email Address"
+                placeholder="Ваш email"
                 className="w-full bg-transparent border-b border-white/30 px-0 py-2 text-sm placeholder:text-white/30 focus:outline-none focus:border-white transition-colors"
               />
               <button
                 type="submit"
                 className="self-start px-6 py-2 text-[11px] font-medium uppercase tracking-wider text-charcoal bg-white rounded-full hover:bg-white/90 transition-colors"
               >
-                Sign Up
+                Подписаться
               </button>
             </form>
           </div>
@@ -113,11 +113,11 @@ export function Footer() {
             <span className="text-lg font-semibold italic tracking-tight">FashionHero</span>
             {/* Country selector */}
             <span className="text-xs text-white/40 border border-white/20 px-3 py-1 rounded">
-              US ($)
+              РУБ (₽)
             </span>
           </div>
           <p className="text-xs text-white/30">
-            &copy; {new Date().getFullYear()} FashionHero, Inc. All Rights Reserved.
+            &copy; {new Date().getFullYear()} FashionHero, Inc. Все права защищены.
           </p>
         </div>
       </div>

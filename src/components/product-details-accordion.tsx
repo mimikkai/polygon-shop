@@ -57,22 +57,22 @@ export function ProductDetailsAccordion({ product }: ProductDetailsAccordionProp
   const sections: AccordionSection[] = [
     {
       id: "description",
-      title: "DESCRIPTION",
+      title: "ОПИСАНИЕ",
       content: product.description,
     },
     {
       id: "features",
-      title: "FEATURES",
+      title: "ХАРАКТЕРИСТИКИ",
       content: product.features.map((f) => `\u2022 ${f}`).join("\n"),
     },
     {
       id: "materials",
-      title: "MATERIALS",
+      title: "МАТЕРИАЛЫ",
       content: product.materials,
     },
     {
       id: "care",
-      title: "CARE",
+      title: "УХОД",
       content: product.care,
     },
   ];

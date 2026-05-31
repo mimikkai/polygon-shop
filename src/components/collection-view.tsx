@@ -10,10 +10,10 @@ import { getSeller } from "@/data/sellers";
 type SortOption = "featured" | "price-asc" | "price-desc" | "newest";
 
 const sortLabels: Record<SortOption, string> = {
-  featured: "Featured",
-  "price-asc": "Price: Low to High",
-  "price-desc": "Price: High to Low",
-  newest: "Newest",
+  featured: "По умолчанию",
+  "price-asc": "Цена: по возрастанию",
+  "price-desc": "Цена: по убыванию",
+  newest: "Новинки",
 };
 
 interface CollectionViewProps {
@@ -137,7 +137,7 @@ export function CollectionView({ products, collectionName, initialSellerSlug }: 
             <line x1="1" y1="8" x2="10" y2="8" />
             <line x1="1" y1="12" x2="6" y2="12" />
           </svg>
-          Filters {activeFilterCount > 0 && `(${activeFilterCount})`}
+           Фильтры {activeFilterCount > 0 && `(${activeFilterCount})`}
         </button>
       </div>
 
@@ -151,7 +151,7 @@ export function CollectionView({ products, collectionName, initialSellerSlug }: 
           <div className="fixed top-0 left-0 h-full w-full max-w-xs bg-white z-50 overflow-y-auto p-5 lg:hidden">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-[14px] font-medium uppercase tracking-[0.5px]">Filters</h2>
-              <button onClick={() => setMobileFiltersOpen(false)} aria-label="Close filters">
+               <button onClick={() => setMobileFiltersOpen(false)} aria-label="Закрыть фильтры">
                 <CloseIcon />
               </button>
             </div>
@@ -174,8 +174,8 @@ export function CollectionView({ products, collectionName, initialSellerSlug }: 
           <div className="flex items-center justify-between mb-6 pb-4 border-b border-black/10">
             <div>
               <h2 className="text-2xl font-light text-charcoal">{collectionName}</h2>
-              <p className="text-[12px] text-warm-gray mt-0.5">
-                {filtered.length} product{filtered.length !== 1 ? "s" : ""}
+               <p className="text-[12px] text-warm-gray mt-0.5">
+                 {filtered.length} товар{filtered.length === 1 ? "" : filtered.length < 5 ? "а" : "ов"}
               </p>
             </div>
 
@@ -221,15 +221,15 @@ export function CollectionView({ products, collectionName, initialSellerSlug }: 
                 <div>
                   <h3 className="text-sm font-medium text-charcoal">{activeSeller.name}</h3>
                   <p className="text-[11px] text-warm-gray mt-0.5">
-                    {sellerProductCount} products · Joined {activeSeller.joinedYear}
-                    {activeSeller.rating > 0 && ` · ${activeSeller.rating} rating`}
+                     {sellerProductCount} товар{sellerProductCount === 1 ? "" : sellerProductCount < 5 ? "а" : "ов"} · С {activeSeller.joinedYear}
+                    {activeSeller.rating > 0 && ` · рейтинг ${activeSeller.rating}`}
                   </p>
                 </div>
                 <button
                   onClick={() => setSellerSlugs([])}
                   className="text-[11px] text-warm-gray underline hover:text-charcoal transition-colors"
                 >
-                  View all sellers
+                   Все продавцы
                 </button>
               </div>
             );
@@ -238,9 +238,9 @@ export function CollectionView({ products, collectionName, initialSellerSlug }: 
           {/* Product grid */}
           {filtered.length === 0 ? (
             <div className="py-20 text-center">
-              <p className="text-warm-gray text-sm mb-4">No products match your filters.</p>
-              <button onClick={clearAll} className="btn-cta-outline text-[11px]">
-                CLEAR ALL FILTERS
+               <p className="text-warm-gray text-sm mb-4">Нет товаров, соответствующих вашим фильтрам.</p>
+               <button onClick={clearAll} className="btn-cta-outline text-[11px]">
+                 СБРОСИТЬ ВСЕ ФИЛЬТРЫ
               </button>
             </div>
           ) : (

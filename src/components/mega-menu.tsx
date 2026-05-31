@@ -4,7 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { CloseIcon } from "./icons";
 
-type MenuKey = "MEN" | "WOMEN" | "SALE";
+type MenuKey = "МУЖЧИНЫ" | "ЖЕНЩИНЫ" | "РАСПРОДАЖА";
 
 interface MenuColumn {
   heading: string;
@@ -13,93 +13,93 @@ interface MenuColumn {
 
 const menMenu: MenuColumn[] = [
   {
-    heading: "SHOES",
+    heading: "ОБУВЬ",
     links: [
-      { label: "Runners", href: "/collections/mens?type=runner" },
-      { label: "Walkers", href: "/collections/mens?type=walker" },
-      { label: "Trainers", href: "/collections/mens?type=trainer" },
-      { label: "Slip-Ons", href: "/collections/mens?type=slip-on" },
-      { label: "All Men's Shoes", href: "/collections/mens" },
+      { label: "Кроссовки", href: "/collections/mens?type=runner" },
+      { label: "Повседневные", href: "/collections/mens?type=walker" },
+      { label: "Тренировочные", href: "/collections/mens?type=trainer" },
+      { label: "Без шнурков", href: "/collections/mens?type=slip-on" },
+      { label: "Вся мужская обувь", href: "/collections/mens" },
     ],
   },
   {
-    heading: "APPAREL",
+    heading: "ОДЕЖДА",
     links: [
-      { label: "Tees", href: "/collections/apparel?gender=men&type=tee" },
-      { label: "Hoodies", href: "/collections/apparel?gender=men&type=hoodie" },
-      { label: "Joggers", href: "/collections/apparel?gender=men&type=pant" },
-      { label: "Jackets", href: "/collections/apparel?gender=men&type=jacket" },
-      { label: "All Men's Apparel", href: "/collections/apparel?gender=men" },
+      { label: "Футболки", href: "/collections/apparel?gender=men&type=tee" },
+      { label: "Худи", href: "/collections/apparel?gender=men&type=hoodie" },
+      { label: "Джоггеры", href: "/collections/apparel?gender=men&type=pant" },
+      { label: "Куртки", href: "/collections/apparel?gender=men&type=jacket" },
+      { label: "Вся мужская одежда", href: "/collections/apparel?gender=men" },
     ],
   },
   {
-    heading: "SOCKS",
+    heading: "НОСКИ",
     links: [
-      { label: "Ankle Socks", href: "/collections/socks?gender=men" },
-      { label: "Crew Socks", href: "/collections/socks?gender=men" },
-      { label: "No-Show", href: "/collections/socks" },
-      { label: "Performance", href: "/collections/socks" },
-      { label: "All Men's Socks", href: "/collections/socks" },
+      { label: "Укороченные", href: "/collections/socks?gender=men" },
+      { label: "Средние", href: "/collections/socks?gender=men" },
+      { label: "Невидимки", href: "/collections/socks" },
+      { label: "Спортивные", href: "/collections/socks" },
+      { label: "Все мужские носки", href: "/collections/socks" },
     ],
   },
   {
-    heading: "ACCESSORIES",
+    heading: "АКСЕССУАРЫ",
     links: [
-      { label: "Bags", href: "/collections/accessories" },
-      { label: "Beanies", href: "/collections/accessories" },
-      { label: "Caps", href: "/collections/accessories" },
-      { label: "Insoles", href: "/collections/accessories" },
+      { label: "Сумки", href: "/collections/accessories" },
+      { label: "Шапки", href: "/collections/accessories" },
+      { label: "Кепки", href: "/collections/accessories" },
+      { label: "Стельки", href: "/collections/accessories" },
     ],
   },
 ];
 
 const womenMenu: MenuColumn[] = [
   {
-    heading: "SHOES",
+    heading: "ОБУВЬ",
     links: [
-      { label: "Runners", href: "/collections/womens?type=runner" },
-      { label: "Walkers", href: "/collections/womens?type=walker" },
-      { label: "Trainers", href: "/collections/womens?type=trainer" },
-      { label: "Flats", href: "/collections/womens?type=flat" },
-      { label: "Slip-Ons", href: "/collections/womens?type=slip-on" },
-      { label: "All Women's Shoes", href: "/collections/womens" },
+      { label: "Кроссовки", href: "/collections/womens?type=runner" },
+      { label: "Повседневные", href: "/collections/womens?type=walker" },
+      { label: "Тренировочные", href: "/collections/womens?type=trainer" },
+      { label: "Туфли", href: "/collections/womens?type=flat" },
+      { label: "Без шнурков", href: "/collections/womens?type=slip-on" },
+      { label: "Вся женская обувь", href: "/collections/womens" },
     ],
   },
   {
-    heading: "APPAREL",
+    heading: "ОДЕЖДА",
     links: [
-      { label: "Tees", href: "/collections/apparel?gender=women&type=tee" },
-      { label: "Hoodies", href: "/collections/apparel?gender=women&type=hoodie" },
-      { label: "Joggers", href: "/collections/apparel?gender=women&type=pant" },
-      { label: "Cardigans", href: "/collections/apparel?gender=women&type=cardigan" },
-      { label: "All Women's Apparel", href: "/collections/apparel?gender=women" },
+      { label: "Футболки", href: "/collections/apparel?gender=women&type=tee" },
+      { label: "Худи", href: "/collections/apparel?gender=women&type=hoodie" },
+      { label: "Джоггеры", href: "/collections/apparel?gender=women&type=pant" },
+      { label: "Кардиганы", href: "/collections/apparel?gender=women&type=cardigan" },
+      { label: "Вся женская одежда", href: "/collections/apparel?gender=women" },
     ],
   },
   {
-    heading: "SOCKS",
+    heading: "НОСКИ",
     links: [
-      { label: "Ankle Socks", href: "/collections/socks?gender=women" },
-      { label: "Crew Socks", href: "/collections/socks?gender=women" },
-      { label: "No-Show", href: "/collections/socks" },
-      { label: "Performance", href: "/collections/socks" },
-      { label: "All Women's Socks", href: "/collections/socks" },
+      { label: "Укороченные", href: "/collections/socks?gender=women" },
+      { label: "Средние", href: "/collections/socks?gender=women" },
+      { label: "Невидимки", href: "/collections/socks" },
+      { label: "Спортивные", href: "/collections/socks" },
+      { label: "Все женские носки", href: "/collections/socks" },
     ],
   },
   {
-    heading: "ACCESSORIES",
+    heading: "АКСЕССУАРЫ",
     links: [
-      { label: "Bags", href: "/collections/accessories" },
-      { label: "Beanies", href: "/collections/accessories" },
-      { label: "Caps", href: "/collections/accessories" },
-      { label: "Insoles", href: "/collections/accessories" },
+      { label: "Сумки", href: "/collections/accessories" },
+      { label: "Шапки", href: "/collections/accessories" },
+      { label: "Кепки", href: "/collections/accessories" },
+      { label: "Стельки", href: "/collections/accessories" },
     ],
   },
 ];
 
 const menuData: Record<MenuKey, MenuColumn[] | null> = {
-  MEN: menMenu,
-  WOMEN: womenMenu,
-  SALE: null,
+  МУЖЧИНЫ: menMenu,
+  ЖЕНЩИНЫ: womenMenu,
+  РАСПРОДАЖА: null,
 };
 
 interface MegaMenuTriggerProps {
@@ -126,9 +126,9 @@ export function MegaMenuNav() {
   }, []);
 
   const triggers: MegaMenuTriggerProps[] = [
-    { label: "MEN", href: "/collections/mens" },
-    { label: "WOMEN", href: "/collections/womens" },
-    { label: "SALE", href: "/collections/sale" },
+    { label: "МУЖЧИНЫ", href: "/collections/mens" },
+    { label: "ЖЕНЩИНЫ", href: "/collections/womens" },
+    { label: "РАСПРОДАЖА", href: "/collections/sale" },
   ];
 
   return (
@@ -154,7 +154,7 @@ export function MegaMenuNav() {
           href="/collections/new-arrivals"
           className="text-[12px] font-medium uppercase tracking-[0.5px] text-charcoal hover:opacity-60 transition-opacity"
         >
-          NEW
+          НОВИНКИ
         </Link>
       </div>
 
@@ -225,9 +225,9 @@ export function MobileMegaMenuContent({ onLinkClick }: { onLinkClick: () => void
   const [expanded, setExpanded] = useState<MenuKey | null>(null);
 
   const triggers: { label: MenuKey; href: string }[] = [
-    { label: "MEN", href: "/collections/mens" },
-    { label: "WOMEN", href: "/collections/womens" },
-    { label: "SALE", href: "/collections/sale" },
+    { label: "МУЖЧИНЫ", href: "/collections/mens" },
+    { label: "ЖЕНЩИНЫ", href: "/collections/womens" },
+    { label: "РАСПРОДАЖА", href: "/collections/sale" },
   ];
 
   return (

@@ -9,9 +9,9 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "FashionHero — Comfortable, Sustainable Shoes",
+  title: "FashionHero — Удобная и экологичная обувь",
   description:
-    "Sustainable, supportive, and wildly comfortable shoes made from natural materials.",
+    "Экологичная, поддерживающая и невероятно удобная обувь из натуральных материалов.",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} h-full antialiased`}>
+    <html lang="ru" className={`${geist.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Shell>{children}</Shell>
       </body>

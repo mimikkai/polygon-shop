@@ -28,37 +28,37 @@ interface FilterSidebarProps {
 const allSizes = [5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 const allTypeOptions: { value: ShoeType; label: string }[] = [
-  { value: "runner", label: "Runner" },
-  { value: "walker", label: "Walker" },
-  { value: "slip-on", label: "Slip-On" },
-  { value: "trainer", label: "Trainer" },
-  { value: "flat", label: "Flat" },
-  { value: "hiker", label: "Hiker" },
-  { value: "slide", label: "Slide" },
-  { value: "loafer", label: "Loafer" },
-  { value: "sock", label: "Sock" },
-  { value: "tee", label: "Tee" },
-  { value: "hoodie", label: "Hoodie" },
-  { value: "pant", label: "Jogger" },
-  { value: "jacket", label: "Jacket" },
-  { value: "cardigan", label: "Cardigan" },
-  { value: "bag", label: "Bag" },
-  { value: "beanie", label: "Beanie" },
-  { value: "cap", label: "Cap" },
-  { value: "insole", label: "Insole" },
+  { value: "runner", label: "Кроссовки" },
+  { value: "walker", label: "Повседневные" },
+  { value: "slip-on", label: "Без шнурков" },
+  { value: "trainer", label: "Тренировочные" },
+  { value: "flat", label: "Туфли" },
+  { value: "hiker", label: "Для походов" },
+  { value: "slide", label: "Слайды" },
+  { value: "loafer", label: "Лоферы" },
+  { value: "sock", label: "Носки" },
+  { value: "tee", label: "Футболки" },
+  { value: "hoodie", label: "Худи" },
+  { value: "pant", label: "Джоггеры" },
+  { value: "jacket", label: "Куртки" },
+  { value: "cardigan", label: "Кардиганы" },
+  { value: "bag", label: "Сумки" },
+  { value: "beanie", label: "Шапки" },
+  { value: "cap", label: "Кепки" },
+  { value: "insole", label: "Стельки" },
 ];
 
 const materialOptions: { value: ShoeMaterial; label: string }[] = [
-  { value: "mesh", label: "Mesh" },
-  { value: "wool", label: "Wool" },
-  { value: "tree-fiber", label: "Tree Fiber" },
-  { value: "knit", label: "Knit" },
+  { value: "mesh", label: "Меш" },
+  { value: "wool", label: "Шерсть" },
+  { value: "tree-fiber", label: "Древесное волокно" },
+  { value: "knit", label: "Трикотаж" },
 ];
 
 const priceOptions: { value: PriceRange; label: string }[] = [
-  { value: "under-100", label: "Under 199 zl" },
-  { value: "100-130", label: "199 - 399 zl" },
-  { value: "over-130", label: "Over 399 zl" },
+  { value: "under-100", label: "До 199 ₽" },
+  { value: "100-130", label: "199 — 399 ₽" },
+  { value: "over-130", label: "От 399 ₽" },
 ];
 
 function FilterSection({
@@ -174,26 +174,26 @@ export function FilterSidebar({
       {/* Header */}
       <div className="flex items-center justify-between pb-4 border-b border-black/10">
         <h3 className="text-[12px] font-medium uppercase tracking-[0.5px]">
-          Filters
+          Фильтры
         </h3>
         {activeFilterCount > 0 && (
           <button
             onClick={onClearAll}
             className="text-[11px] text-warm-gray underline hover:text-charcoal transition-colors"
           >
-            Clear all ({activeFilterCount})
+             Сбросить ({activeFilterCount})
           </button>
         )}
       </div>
 
       {/* Gender */}
-      <FilterSection title="Gender">
+       <FilterSection title="Пол">
         <div className="flex flex-col gap-0.5">
           {(["all", "men", "women"] as const).map((g) => (
             <Checkbox
               key={g}
               checked={gender === g}
-              label={g === "all" ? "All" : g === "men" ? "Men" : "Women"}
+               label={g === "all" ? "Все" : g === "men" ? "Муж." : "Жен."}
               onChange={() => onGenderChange(g)}
             />
           ))}
@@ -201,7 +201,7 @@ export function FilterSidebar({
       </FilterSection>
 
       {/* Size */}
-      <FilterSection title="Size">
+       <FilterSection title="Размер">
         <div className="grid grid-cols-4 gap-1.5">
           {allSizes.map((size) => (
             <button
@@ -221,7 +221,7 @@ export function FilterSidebar({
       </FilterSection>
 
       {/* Price Range */}
-      <FilterSection title="Price">
+       <FilterSection title="Цена">
         <div className="flex flex-col gap-0.5">
           {priceOptions.map((opt) => (
             <Checkbox
@@ -237,7 +237,7 @@ export function FilterSidebar({
       </FilterSection>
 
       {/* Shoe Type */}
-      <FilterSection title="Product Type">
+       <FilterSection title="Тип товара">
         <div className="flex flex-col gap-0.5">
           {shoeTypeOptions.map((opt) => (
             <Checkbox
@@ -251,7 +251,7 @@ export function FilterSidebar({
       </FilterSection>
 
       {/* Material */}
-      <FilterSection title="Material">
+       <FilterSection title="Материал">
         <div className="flex flex-col gap-0.5">
           {materialOptions.map((opt) => (
             <Checkbox
@@ -265,7 +265,7 @@ export function FilterSidebar({
       </FilterSection>
 
       {/* Seller */}
-      <FilterSection title="Seller">
+       <FilterSection title="Продавец">
         <div className="flex flex-col gap-0.5">
           {allSellers.map((seller) => (
             <Checkbox

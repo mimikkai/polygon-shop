@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const collection = getCollection(slug);
 
   if (!collection) {
-    return { title: "Collection Not Found" };
+    return { title: "Коллекция не найдена" };
   }
 
   return {

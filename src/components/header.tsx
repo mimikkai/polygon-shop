@@ -9,7 +9,7 @@ import { MegaMenuNav, MobileMegaMenuContent } from "./mega-menu";
 import { useAuth } from "./auth-provider";
 
 const secondaryLinks = [
-  { label: "About", href: "/about" },
+  { label: "О нас", href: "/about" },
 ];
 
 interface HeaderProps {
@@ -30,7 +30,7 @@ export function Header({ onCartOpen, cartCount = 0, wishlistCount = 0 }: HeaderP
         <button
           className="lg:hidden p-1 mr-3"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-label={mobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
         >
           {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
@@ -57,7 +57,7 @@ export function Header({ onCartOpen, cartCount = 0, wishlistCount = 0 }: HeaderP
             </Link>
           ))}
           <button
-            aria-label="Search"
+            aria-label="Поиск"
             className="p-1 hover:opacity-60 transition-opacity"
             onClick={() => setSearchOpen(true)}
           >
@@ -65,7 +65,7 @@ export function Header({ onCartOpen, cartCount = 0, wishlistCount = 0 }: HeaderP
           </button>
           <Link
             href="/wishlist"
-            aria-label="Wishlist"
+            aria-label="Избранное"
             className="hidden sm:block p-1 hover:opacity-60 transition-opacity relative"
           >
             <HeartIcon className="h-5 w-5" />
@@ -77,7 +77,7 @@ export function Header({ onCartOpen, cartCount = 0, wishlistCount = 0 }: HeaderP
           </Link>
           <Link
             href={user ? "/account" : "/account/login"}
-            aria-label="Account"
+            aria-label="Аккаунт"
             className="hidden sm:flex p-1 hover:opacity-60 transition-opacity items-center justify-center"
           >
             {user ? (
@@ -89,7 +89,7 @@ export function Header({ onCartOpen, cartCount = 0, wishlistCount = 0 }: HeaderP
             )}
           </Link>
           <button
-            aria-label="View Cart"
+            aria-label="Корзина"
             className="p-1 hover:opacity-60 transition-opacity relative"
             onClick={onCartOpen}
           >

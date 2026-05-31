@@ -8,8 +8,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons";
 type Tab = "new-arrivals" | "best-sellers";
 
 const tabs: { label: string; value: Tab }[] = [
-  { label: "NEW ARRIVALS", value: "new-arrivals" },
-  { label: "BEST SELLERS", value: "best-sellers" },
+  { label: "НОВИНКИ", value: "new-arrivals" },
+  { label: "БЕСТСЕЛЛЕРЫ", value: "best-sellers" },
 ];
 
 export function ProductCarousel() {
@@ -31,7 +31,7 @@ export function ProductCarousel() {
     <section className="py-12">
       {/* Section heading */}
       <h2 className="text-[40px] font-normal text-charcoal text-center mb-2">
-        Our Favorites
+         Наши любимцы
       </h2>
 
       {/* Tab buttons */}
@@ -56,7 +56,7 @@ export function ProductCarousel() {
         <button
           onClick={() => scroll("left")}
           className="absolute left-2 top-1/3 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-sm hidden md:flex items-center justify-center"
-          aria-label="Scroll left"
+           aria-label="Прокрутить влево"
         >
           <ChevronLeftIcon />
         </button>
@@ -77,7 +77,7 @@ export function ProductCarousel() {
         <button
           onClick={() => scroll("right")}
           className="absolute right-2 top-1/3 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-sm hidden md:flex items-center justify-center"
-          aria-label="Scroll right"
+           aria-label="Прокрутить вправо"
         >
           <ChevronRightIcon />
         </button>

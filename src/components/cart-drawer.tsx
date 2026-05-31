@@ -48,8 +48,8 @@ export function CartDrawer({
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-4 border-b">
-          <h2 className="text-nav">CART ({items.length})</h2>
-          <button onClick={onClose} aria-label="Close cart">
+          <h2 className="text-nav">КОРЗИНА ({items.length})</h2>
+          <button onClick={onClose} aria-label="Закрыть корзину">
             <CloseIcon />
           </button>
         </div>
@@ -58,11 +58,11 @@ export function CartDrawer({
         <div className="px-4 py-3 bg-cream-light text-center">
           {remaining > 0 ? (
             <p className="text-xs text-warm-gray">
-              Spend {remaining.toFixed(0)} zl more to earn free shipping!
+               Ещё {remaining.toFixed(0)} ₽ до бесплатной доставки!
             </p>
-          ) : (
+           ) : (
             <p className="text-xs text-warm-gray">
-              You&apos;ve earned free shipping!
+              Вы получили бесплатную доставку!
             </p>
           )}
         </div>
@@ -72,14 +72,14 @@ export function CartDrawer({
           {items.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-sm text-warm-gray mb-4">
-                Your cart is empty. Start shopping!
+                Ваша корзина пуста. Начните покупки!
               </p>
               <div className="space-y-2">
                 <a href="/collections/womens" className="btn-cta block">
-                  SHOP WOMENS
+                  ЖЕНСКАЯ ОБУВЬ
                 </a>
                 <a href="/collections/mens" className="btn-cta-outline block">
-                  SHOP MENS
+                  МУЖСКАЯ ОБУВЬ
                 </a>
               </div>
             </div>
@@ -112,7 +112,7 @@ export function CartDrawer({
                         {item.product.name}
                       </h3>
                       <p className="text-xs text-warm-gray">
-                        {item.color.name} / Size {item.size}
+                        {item.color.name} / Размер {item.size}
                       </p>
                       <div className="flex items-center justify-between mt-2">
                         <div className="flex items-center border border-cream-dark">
@@ -135,7 +135,7 @@ export function CartDrawer({
                           </button>
                         </div>
                         <span className="text-sm font-medium">
-                          {(item.product.price * item.quantity).toFixed(0)} zl
+                          {(item.product.price * item.quantity).toFixed(0)} ₽
                         </span>
                       </div>
                     </div>
@@ -150,18 +150,18 @@ export function CartDrawer({
         {items.length > 0 && (
           <div className="px-4 py-4 border-t">
             <div className="flex justify-between mb-3">
-              <span className="text-sm font-medium">Subtotal</span>
-              <span className="text-sm font-medium">{subtotal.toFixed(0)} zl</span>
+               <span className="text-sm font-medium">Подытог</span>
+               <span className="text-sm font-medium">{subtotal.toFixed(0)} ₽</span>
             </div>
             <p className="text-xs text-warm-gray mb-3">
-              Shipping and taxes calculated at checkout.
+              Доставка и налоги рассчитываются при оформлении заказа.
             </p>
             <Link
               href="/checkout"
               className="btn-cta w-full block text-center"
               onClick={onClose}
             >
-              CHECKOUT
+              ОФОРМИТЬ ЗАКАЗ
             </Link>
           </div>
         )}

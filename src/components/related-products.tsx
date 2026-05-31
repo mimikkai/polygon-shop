@@ -26,19 +26,19 @@ export function RelatedProducts({ products }: RelatedProductsProps) {
   return (
     <section className="py-12">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-medium text-charcoal">You May Also Like</h2>
+        <h2 className="text-lg font-medium text-charcoal">Вам может понравиться</h2>
         <div className="flex gap-2">
           <button
             onClick={() => scroll("left")}
             className="w-9 h-9 flex items-center justify-center border border-border rounded-full hover:border-charcoal transition-colors"
-            aria-label="Previous"
+            aria-label="Назад"
           >
             <ChevronLeftIcon className="h-4 w-4" />
           </button>
           <button
             onClick={() => scroll("right")}
             className="w-9 h-9 flex items-center justify-center border border-border rounded-full hover:border-charcoal transition-colors"
-            aria-label="Next"
+            aria-label="Вперёд"
           >
             <ChevronRightIcon className="h-4 w-4" />
           </button>

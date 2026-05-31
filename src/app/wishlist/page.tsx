@@ -17,30 +17,30 @@ export default function WishlistPage() {
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-[11px] text-warm-gray mb-6">
         <Link href="/" className="hover:text-charcoal transition-colors">
-          Home
+          Главная
         </Link>
         <span>/</span>
-        <span className="uppercase tracking-[0.5px] text-charcoal">Wishlist</span>
+        <span className="uppercase tracking-[0.5px] text-charcoal">Избранное</span>
       </div>
 
-      <h1 className="text-3xl font-light text-charcoal mb-2">Wishlist</h1>
+      <h1 className="text-3xl font-light text-charcoal mb-2">Избранное</h1>
       <p className="text-sm text-warm-gray mb-10">
         {wishlistedProducts.length === 0
-          ? "You haven't saved any items yet."
-          : `${wishlistedProducts.length} saved item${wishlistedProducts.length === 1 ? "" : "s"}`}
+          ? "Вы ещё не сохранили ни одного товара."
+          : `${wishlistedProducts.length} сохранённ${wishlistedProducts.length === 1 ? "ый" : wishlistedProducts.length < 5 ? "ых" : "ых"} товар${wishlistedProducts.length === 1 ? "" : wishlistedProducts.length < 5 ? "а" : "ов"}`}
       </p>
 
       {wishlistedProducts.length === 0 ? (
         <div className="text-center py-20">
           <p className="text-warm-gray mb-6">
-            Tap the heart icon on any product to save it here.
+            Нажмите на иконку сердца на любом товаре, чтобы сохранить его здесь.
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/collections/mens" className="btn-cta">
-              SHOP MEN
+              МУЖСКАЯ ОБУВЬ
             </Link>
             <Link href="/collections/womens" className="btn-cta-outline">
-              SHOP WOMEN
+              ЖЕНСКАЯ ОБУВЬ
             </Link>
           </div>
         </div>

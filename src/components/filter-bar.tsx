@@ -19,46 +19,46 @@ interface FilterBarProps {
 }
 
 const sortLabels: Record<SortOption, string> = {
-  featured: "Featured",
-  "price-asc": "Price: Low to High",
-  "price-desc": "Price: High to Low",
-  newest: "Newest",
+  featured: "По умолчанию",
+  "price-asc": "Цена: по возрастанию",
+  "price-desc": "Цена: по убыванию",
+  newest: "Новинки",
 };
 
 const priceLabels: Record<PriceRange, string> = {
-  all: "All Prices",
-  "under-100": "Under 199 zl",
-  "100-130": "199 - 399 zl",
-  "over-130": "Over 399 zl",
+  all: "Все цены",
+  "under-100": "До 199 ₽",
+  "100-130": "199 — 399 ₽",
+  "over-130": "От 399 ₽",
 };
 
 const shoeTypeLabels: Record<ShoeType, string> = {
-  runner: "Runner",
-  walker: "Walker",
-  "slip-on": "Slip-On",
-  trainer: "Trainer",
-  flat: "Flat",
-  hiker: "Hiker",
-  slide: "Slide",
-  loafer: "Loafer",
-  sock: "Sock",
-  tee: "Tee",
-  hoodie: "Hoodie",
-  pant: "Jogger",
-  jacket: "Jacket",
-  cardigan: "Cardigan",
-  bag: "Bag",
-  beanie: "Beanie",
-  cap: "Cap",
-  insole: "Insole",
+  runner: "Кроссовки",
+  walker: "Повседневные",
+  "slip-on": "Без шнурков",
+  trainer: "Тренировочные",
+  flat: "Туфли",
+  hiker: "Для походов",
+  slide: "Слайды",
+  loafer: "Лоферы",
+  sock: "Носки",
+  tee: "Футболки",
+  hoodie: "Худи",
+  pant: "Джоггеры",
+  jacket: "Куртки",
+  cardigan: "Кардиганы",
+  bag: "Сумки",
+  beanie: "Шапки",
+  cap: "Кепки",
+  insole: "Стельки",
 };
 
 const materialLabels: Record<ShoeMaterial, string> = {
-  mesh: "Mesh",
-  wool: "Wool",
-  "tree-fiber": "Tree Fiber",
-  knit: "Knit",
-  leather: "Leather",
+  mesh: "Меш",
+  wool: "Шерсть",
+  "tree-fiber": "Древесное волокно",
+  knit: "Трикотаж",
+  leather: "Кожа",
 };
 
 const shoeTypeOptions: ShoeType[] = ["runner", "walker", "slip-on", "trainer", "flat"];
@@ -131,7 +131,7 @@ export function FilterBar({
         <div className="flex items-center justify-between">
           {/* Left: Filter count */}
           <span className="text-label">
-            FILTER{activeFilterCount > 0 ? ` (${activeFilterCount})` : ""} ({productCount} products)
+            ФИЛЬТР{activeFilterCount > 0 ? ` (${activeFilterCount})` : ""} ({productCount} товар{productCount === 1 ? "" : productCount < 5 ? "а" : "ов"})
           </span>
 
           {/* Center: Gender toggle pills */}
@@ -146,7 +146,7 @@ export function FilterBar({
                     : "bg-transparent text-charcoal border-charcoal/30 hover:border-charcoal"
                 }`}
               >
-                {gender === "all" ? "ALL" : gender === "men" ? "MEN" : "WOMEN"}
+                {gender === "all" ? "ВСЕ" : gender === "men" ? "МУЖ." : "ЖЕН."}
               </button>
             ))}
           </div>
@@ -199,7 +199,7 @@ export function FilterBar({
 
         {/* Shoe type pills */}
         <div className="flex items-center gap-2 mt-2">
-          <span className="text-[10px] font-medium uppercase tracking-wider text-warm-gray mr-1">Type:</span>
+           <span className="text-[10px] font-medium uppercase tracking-wider text-warm-gray mr-1">Тип:</span>
           {shoeTypeOptions.map((type) => (
             <button
               key={type}
@@ -217,7 +217,7 @@ export function FilterBar({
 
         {/* Material pills */}
         <div className="flex items-center gap-2 mt-2">
-          <span className="text-[10px] font-medium uppercase tracking-wider text-warm-gray mr-1">Material:</span>
+           <span className="text-[10px] font-medium uppercase tracking-wider text-warm-gray mr-1">Материал:</span>
           {materialOptions.map((material) => (
             <button
               key={material}

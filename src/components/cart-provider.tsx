@@ -11,6 +11,7 @@ interface CartContextType {
   updateQuantity: (index: number, quantity: number) => void;
   openCart: () => void;
   closeCart: () => void;
+  clearCart: () => void;
   itemCount: number;
 }
 
@@ -59,6 +60,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
+  const clearCart = useCallback(() => {
+    setItems([]);
+  }, []);
+
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -68,6 +73,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         addItem,
         removeItem,
         updateQuantity,
+        clearCart,
         openCart: () => setIsOpen(true),
         closeCart: () => setIsOpen(false),
         itemCount,

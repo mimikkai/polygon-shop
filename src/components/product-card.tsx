@@ -27,13 +27,13 @@ export function ProductCard({ product, className }: ProductCardProps) {
   const { openQuickView } = useQuickView();
   const seller = getSellerById(product.sellerId);
   const badgeLabel = product.badge === "new"
-    ? "NEW"
+    ? "НОВИНКА"
     : product.badge === "new-color"
-    ? "NEW COLOR"
+    ? "НОВЫЙ ЦВЕТ"
     : product.badge === "bestseller"
-    ? "BESTSELLER"
+    ? "БЕСТСЕЛЛЕР"
     : product.badge === "sale"
-    ? "SALE"
+    ? "РАСПРОДАЖА"
     : null;
 
   const imageSrc = firstColor.image;
@@ -93,7 +93,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
               }}
               className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-white/90 px-4 py-2 text-[10px] font-medium uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-200 hidden md:block hover:bg-white z-10"
             >
-              QUICK VIEW
+               БЫСТРЫЙ ПРОСМОТР
             </button>
           </div>
         </Link>
@@ -113,7 +113,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           <p className="text-[12px] text-warm-gray mb-0.5">{firstColor?.name}</p>
           {seller && (
             <p className="text-[11px] text-warm-gray/70 mb-1">
-              Sold by{" "}
+               Продавец:{" "}
               <span className="text-charcoal/60 hover:text-charcoal transition-colors">
                 {seller.name}
               </span>
@@ -141,10 +141,10 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
       {/* Price */}
       <div className="flex items-center gap-2">
-        <span className="text-[14px] font-medium">{product.price} zl</span>
-        {product.originalPrice && (
-          <span className="text-xs text-warm-gray line-through">
-            {product.originalPrice} zl
+         <span className="text-[14px] font-medium">{product.price} ₽</span>
+         {product.originalPrice && (
+           <span className="text-xs text-warm-gray line-through">
+             {product.originalPrice} ₽
           </span>
         )}
       </div>

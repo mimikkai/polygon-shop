@@ -46,7 +46,7 @@ export function CollectionHero({ collection }: CollectionHeroProps) {
           <ol className="flex items-center justify-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.6px] text-white/70">
             <li>
               <Link href="/" className="hover:underline">
-                Home
+                 Главная
               </Link>
             </li>
             <li aria-hidden="true">/</li>
