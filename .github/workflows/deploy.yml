@@ -36,6 +36,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Fix /images/ basePath for GitHub Pages
+        run: find out -name '*.html' -exec sed -i 's|="/images/|="/polygon-shop/images/|g' {} +
+
       - name: Add 404.html for SPA routing
         run: cp out/index.html out/404.html
 
